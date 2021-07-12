@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+
+  <Controls>
+    <Control>
+      <Name>VirtualRegistry-GroupingFormat</Name>
+      <CustomControl>
+        <CustomEntries>
+          <CustomEntry>
+            <CustomItem>
+              <Frame>
+                <LeftIndent>4</LeftIndent>
+                <CustomItem>
+                  <Text>Hive: </Text>
+                  <ExpressionBinding>
+                    <ScriptBlock>$_.PSParentPath.Replace("VirtualRegistry::", "")</ScriptBlock>
+                  </ExpressionBinding>
+                  <NewLine/>
+                </CustomItem>
+              </Frame>
+            </CustomItem>
+          </CustomEntry>
+        </CustomEntries>
+      </CustomControl>
+    </Control>
+  </Controls>
+
+    <ViewDefinitions>
+
+    <!-- View for DiscUtils.VirtualDisk -->
+    <View>
+      <Name>EmailAttachment</Name>
+      <ViewSelectedBy>
+        <TypeName>Outlook.Attachment</TypeName>
+      </ViewSelectedBy>
+      <GroupBy>
+        <PropertyName>Message</PropertyName>
+        <CustomControlName>FileSystemTypes-GroupingFormat</CustomControlName>
+      </GroupBy>
+      <TableControl>
+        <TableHeaders>
+          <TableColumnHeader>
+            <Label>Subject</Label>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>13</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>15</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Width>15</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>SenderName</Label>
+            <Width>10</Width>
+          </TableColumnHeader>
+          <TableColumnHeader>
+            <Label>SenderEmailAddress</Label>
+          </TableColumnHeader>
+        </TableHeaders>
+        <TableRowEntries>
+          <TableRowEntry>
+            <TableColumnItems>
+              <TableColumnItem>
+                <PropertyName>Subject</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>SenderName</PropertyName>
+              </TableColumnItem>
+              <TableColumnItem>
+                <PropertyName>SenderEmailAddress</PropertyName>
+              </TableColumnItem>
+            </TableColumnItems>
+          </TableRowEntry>
+        </TableRowEntries>
+      </TableControl>
+    </View>
+    </ViewDefinitions>
+</Configuration>
